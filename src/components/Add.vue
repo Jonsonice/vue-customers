@@ -39,7 +39,7 @@
 			addCustomer(e){
 				// console.log('test');
 				if(!this.customer.name || !this.customer.phone || !this.customer.email){
-					console.log("请添加信息")
+					// console.log("请添加信息")
 				}else{
 					let newCustomer = {
 						name: this.customer.name,
@@ -53,7 +53,9 @@
 					this.$http.post("http://localhost:3000/users",newCustomer)
 					.then(function(response){
 						// console.log(response);
-						this.$router.push({path:"/"})
+						this.$router.push({
+							path:"/",query:{alert:"用户信息添加成功!"}
+							})
 					})
 					e.preventDefault();
 				}

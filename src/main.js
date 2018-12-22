@@ -5,6 +5,7 @@ import VueRouter from 'vue-router'
 import VueResource from 'vue-resource'
 import App from './App'
 import Customers from './components/Customers'
+import CustomerDetails from './components/CustomerDetails'
 import About from './components/About'
 import Add from './components/Add'
 
@@ -28,6 +29,10 @@ const router = new VueRouter({
 		{
 			path: '/add',
 			component: Add
+		},
+		{
+			path: '/customer/:id',
+			component: CustomerDetails
 		}
 	]
 })

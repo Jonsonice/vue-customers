@@ -2,6 +2,7 @@
 // (runtime-only or standalone) has been set in webpack.base.conf with an alias.
 import Vue from 'vue'
 import VueRouter from 'vue-router'
+import VueResource from 'vue-resource'
 import App from './App'
 import Customers from './components/Customers'
 import About from './components/About'
@@ -9,7 +10,7 @@ import About from './components/About'
 Vue.config.productionTip = false
 
 Vue.use(VueRouter)
-
+Vue.use(VueResource)
 
 //设置路由
 const router = new VueRouter({

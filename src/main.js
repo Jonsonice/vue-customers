@@ -18,7 +18,7 @@ Vue.use(VueResource)
 //设置路由
 const router = new VueRouter({
 	mode: "history",
-	base: __dirname,
+	// base: __dirname,
 	routes: [{
 			path: '/',
 			component: Customers

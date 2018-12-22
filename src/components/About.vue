@@ -1,6 +1,6 @@
 <template>
 	<div class="about container">
-		<h1>hello about</h1>
+		<h1 class="page-header">我是不是很棒</h1>
 	</div>
 </template>
 

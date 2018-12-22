@@ -2,6 +2,8 @@
 	<div class="customers container">
 		<Alert v-bind:message="alert" v-if="alert"></Alert>
 		<h1 class="page-header">用户管理系统</h1>
+		<input type="text" class="form-control" placeholder="可根据姓名进行搜索" v-model="filterInput">
+		<br>
 		<table class="table table-striped">
 			<thead>
 				<tr>
@@ -12,7 +14,7 @@
 				</tr>
 			</thead>
 			<tbody>
-				<tr v-for="customer in customers" :key="customer.id">
+				<tr v-for="customer in filterBy(customers,filterInput)" :key="customer.id">
 					<td>{{customer.name}}</td>
 					<td>{{customer.phone}}</td>
 					<td>{{customer.email}}</td>
@@ -33,7 +35,8 @@
 		data() {
 			return {
 				customers:[],
-				alert:""
+				alert:"",
+				filterInput:""
 			};
 		},
 		methods:{
@@ -42,6 +45,11 @@
 				.then(function(response){
 					// console.log(response);
 					this.customers =response.body;
+				})
+			},
+			filterBy(customers,value){
+				return customers.filter(function(customer){
+					return customer.name.match(value);
 				})
 			}
 		},

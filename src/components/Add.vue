@@ -1,5 +1,6 @@
 <template>
 	<div class="add container">
+		<Alert v-bind:message="alert" v-if="alert"></Alert>
 		<h1 class="page-header">添加用户</h1>
 		<form v-on:submit="addCustomer">
 			<div class="well">
@@ -28,11 +29,13 @@
 </template>
 
 <script>
+	import Alert from './Alert'
 	export default {
 		name: 'add',
 		data() {
 			return {
-				customer:{}
+				customer:{},
+				alert:""
 			}
 		},
 		methods:{
@@ -40,6 +43,7 @@
 				// console.log('test');
 				if(!this.customer.name || !this.customer.phone || !this.customer.email){
 					// console.log("请添加信息")
+					this.alert= "必须添加姓名 电话 邮箱";
 				}else{
 					let newCustomer = {
 						name: this.customer.name,
@@ -61,6 +65,9 @@
 				}
 				e.preventDefault();
 			}
+		},
+		components:{
+			Alert
 		}
 	}
 </script>

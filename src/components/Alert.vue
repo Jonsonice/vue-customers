@@ -20,9 +20,5 @@
 </script>
 
 <style scoped>
-.alert-warning{
-	background-color: #3C3B6E;
-	color: #fff;
-	border-color: #3C3B6E;
-}
+
 </style>

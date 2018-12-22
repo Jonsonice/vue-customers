@@ -67,12 +67,5 @@
 </script>
 
 <style scoped>
-.list-group-item{
-	border-color: #337ab7;
-	background: #FFFFFF;
-	color: #d9534f;
-}
-h1{
-	color: #337ab7;
-}
+
 </style>

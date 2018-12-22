@@ -8,6 +8,7 @@ import Customers from './components/Customers'
 import CustomerDetails from './components/CustomerDetails'
 import About from './components/About'
 import Add from './components/Add'
+import Edit from './components/Edit'
 
 Vue.config.productionTip = false
 
@@ -33,6 +34,10 @@ const router = new VueRouter({
 		{
 			path: '/customer/:id',
 			component: CustomerDetails
+		},
+		{
+			path: '/edit/:id',
+			component: Edit
 		}
 	]
 })

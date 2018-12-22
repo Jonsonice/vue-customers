@@ -1,6 +1,14 @@
 <template>
 	<div class="details container">
-		<h1 class="page-header glyphicon glyphicon-user"> {{customer.name}}</h1>
+		<router-link to="/" class="btn btn-default">返回</router-link>
+		<h1 class="page-header">
+		{{customer.name}}
+		 <span class="pull-right">
+			 <router-link class="btn btn-primary" v-bind:to="'/edit/'+customer.id">编辑</router-link>
+			 <button class="btn btn-danger" v-on:click="deleteCustomer(customer.id)">删除</button>
+		 </span>
+		
+		</h1>
 		<ul class="list-group">
 			<li class="list-group-item">
 				<span class="glyphicon glyphicon-earphone"> {{customer.phone}}</span>
@@ -41,6 +49,15 @@
 						// console.log(response);
 						this.customer = response.body;
 					})
+			},
+			deleteCustomer(id){
+				// console.log(id);
+				this.$http.delete("http://localhost:3000/users/" + id)
+					.then(function(response) {
+						// console.log(response);
+						this.$router.push({path:"/",query:{alert:"用户删除成功!"}})
+					})
+				
 			}
 		},
 		created() {
@@ -50,5 +67,12 @@
 </script>
 
 <style scoped>
-
+.list-group-item{
+	border-color: #337ab7;
+	background: #FFFFFF;
+	color: #d9534f;
+}
+h1{
+	color: #337ab7;
+}
 </style>
